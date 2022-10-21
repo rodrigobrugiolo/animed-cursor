@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Página principal</title>
+		<meta charset="utf-8">
+		
+		<link rel="stylesheet" type="text/css" href="main.css">
+		
+	</head>
+	<body>
+
+
+        <div class="cursor"></div>
+
+        <script>
+
+        //identificar o elemento bolinha
+        var bolinha = document.querySelector('.cursor');
+
+        //capturar posição do mouse na tela
+        document.addEventListener('mousemove', function(m){
+        //atribuir a posição do mouse X e Y como Position da bolinha  
+            let xPos = m.pageX - 15;
+            let yPos = m.pageY - 15;
+
+            bolinha.style.left = xPos + 'px';
+            bolinha.style.top = yPos + 'px';
+        });
+
+       bolinha.addEventListener('click', function(){
+            this.classList.add('cursor-expand');
+            
+            setTimeout(function(){
+                bolinha.classList.remove('cursor-expand');
+           }, 300);
+       });
+           
+
+     
+
+        </script>
+
+	</body>
+
+</html>

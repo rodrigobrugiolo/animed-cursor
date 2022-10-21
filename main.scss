@@ -1,0 +1,80 @@
+@keyframes rotateCursor {
+    to {
+       transform: rotate(360deg);
+    }
+}
+
+
+@keyframes expandCursor {
+    0% {
+        opacity: 0;
+        border-radius: 50%;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        border-radius: 25%;
+    }
+
+    100% {
+        opacity: 0;
+        border-radius: 0;
+        transform: scale(2);
+    }
+}
+
+
+
+body {
+    background: #000111;
+    margin: 0;
+    padding: 0;
+    /*cursor: none;*/
+}
+
+.cursor{
+    width: 30px;
+    height: 30px;
+    display: block;
+    border-radius: 50%;
+    position: absolute;
+    background: lime;
+    transition: all 0.1s ease-out;
+    animation: rotateCursor 4s linear infinite;
+    cursor: none;
+}
+
+.cursor:before {
+    content: '';
+    width: 60px;
+    height: 60px;
+    border-radius: 10%;
+    display: block;
+    position: absolute;
+    border: 1px solid #fff;
+    background: transparent;
+    top: -15px;
+    left: -15px;
+    opacity: 0.8;
+}
+
+.cursor:after {
+    content: '';
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: block;
+    border: 2px solid rgb(242, 47, 47);
+    background: transparent;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    opacity: 0;
+    box-sizing: border-box;
+}
+
+.cursor-expand {
+    &:after{
+    animation: expandCursor 0.4s ease-out forwards;
+}}
